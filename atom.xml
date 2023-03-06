@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://Famousgavin.github.io</id>
+    <title>Gavin Lee</title>
+    <updated>2023-03-06T01:34:32.469Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://Famousgavin.github.io"/>
+    <link rel="self" href="https://Famousgavin.github.io/atom.xml"/>
+    <subtitle>温故而知新</subtitle>
+    <logo>https://Famousgavin.github.io/images/avatar.png</logo>
+    <icon>https://Famousgavin.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2023, Gavin Lee</rights>
+    <entry>
+        <title type="html"><![CDATA[【Windows】➥ Clash for Windows【推荐】✔️]]></title>
+        <id>https://Famousgavin.github.io/clashforwin/</id>
+        <link href="https://Famousgavin.github.io/clashforwin/">
+        </link>
+        <updated>2018-02-24T09:09:38.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="注意事项">🚫注意事项</h2>
+<p>💡已经证实360/毒霸/2345等全家桶(包含安全卫士及杀毒)会拦截此软件导致无法使用，需要卸载后重启再试。如担心系统安全可以安装<a href="https://huorong.cn">火绒安全软件</a><br>
+💡如果电脑里安装过其他代理软件可能会产生冲突导致无法正常运行，包括谷歌、EDGE浏览器的第三方代理插件（例：谷歌访问助手）需要卸载后才能正常使用。<br>
+💡使用<strong>Windows</strong>宽带拨号上网时会无法使用本软件，需要切换到通过路由器或者WIFI上网。<br>
+💡<code>如果服务器全部显示timeout（超时）大概率是系统时间和北京时间有误差（大于2分钟），检查一下，最好同步一下系统时间</code>。</p>
+<hr>
+<h2 id="1-获取应用">1. 获取应用</h2>
+<p>软件版本更新较快，如果追新请点击进入【<a href="https://github.com/Fndroid/clash_for_windows_pkg/releases">官方Releases-英文版</a>】 页面下载。<br>
+下载解压后安装至磁盘运行 <code>Clash for Windows</code>。<br>
+⚠️（不建议安装至系统盘（C盘），安装至系统盘（C盘）可能会出现权限问题。<br>
+⚠️（由于软件需要更改系统的代理设置，权限比较敏感，第一次运行程序时请右键，选择【以管理员身份运行】</p>
+<ul>
+<li>百度网盘：<a href="https://pan.baidu.com/s/1VRysAOXGW3LNnbuufop2Qw">下载软件-中文版</a> <code>提取码：4tqy</code></li>
+</ul>
+<hr>
+<h2 id="2-快速导入">2. 快速导入</h2>
+<p>此处我们将指导您使用 「 <a class="btn btn-sm btnprimary" href="clash://install-config?url=https://v2.bohe7.icu/api/v1/client/subscribe?token=9f7fbc0ddcddf07aae5f5f83a4f6c3da"></i>一键导入 </a>」 方式完成配置。</p>
+<p>注意：如果「 **导入到Clash&amp;&amp;」失败，也可以手动添加订阅。<br>
+步骤：点击网站仪表盘的【<strong>一键订阅</strong>】 &gt; 【<strong>复制订阅地址</strong>】复制，打开App，然后点击【**Profiles **】&gt;点击地址栏后面的【粘贴】图标，点击【<strong>Download</strong>】。</p>
+<p>分组名称：<strong>www.bohe7.com</strong><br>
+Url（你的订阅地址）：<u>https://v2.bohe7.icu/api/v1/client/subscribe?token=9f7fbc0ddcddf07aae5f5f83a4f6c3da</u><br>
+<img src="https://Famousgavin.github.io/post-images/1677827382814.png" alt="" loading="lazy"><br>
+<img src="https://Famousgavin.github.io/post-images/1677827503739.png" alt="" loading="lazy"></p>
+<hr>
+<h2 id="3-开始连接">3. 开始连接</h2>
+<ol>
+<li>返回到初始界面General，并且打开系统连接！</li>
+<li>System Proxy即为代理开关</li>
+<li>如果System Proxy开关已经打开，此时已经可以使用本站提供的服务了。<br>
+<img src="https://Famousgavin.github.io/post-images/1677827549344.png" alt="" loading="lazy"></li>
+</ol>
+<hr>
+<h2 id="4-软件简介">4. 软件简介</h2>
+<p>功能说明</p>
+<ol>
+<li><strong>General</strong> - 系统配置及开关页面</li>
+<li><strong>Proxies</strong> - 节点线路</li>
+<li><strong>Profiles</strong> - 订阅管理<br>
+代理模式</li>
+<li><strong>Global</strong> - 全局模式，所有数据都会通过代理连接</li>
+<li><strong>Rule</strong> - 规则模式，自动判断数据是否需要通过代理连接<br>
+⚠️日常使用时请保持【Rule】模式，否则可能会影响使用。</li>
+<li><strong>Driect</strong> - 直连模式，相当于关闭代理</li>
+<li><strong>Script</strong> - 脚本模式</li>
+</ol>
+<hr>
+<h2 id="5-关于-tun-模式的说明">5. 关于 TUN 模式的说明</h2>
+<p>什么是 TUN 模式？<br>
+对于不遵循系统代理的软件（软件是不加载系统代理的），开启 TUN 模式后，CFW 会加载虚拟网卡至系统，TUN 模式可以接管其流量并交由 CFW 处理，在 <code>Windows</code> 中，TUN 模式性能比 TAP 模式好；<br>
+比较适用于各种安卓模拟器（用来玩外服游戏）以及 <code>Telegram</code> 等需要代理的软件，如果你不需要这个功能则不用开启 TUN 模式。<br>
+1.点击【<code>Genera</code>l】找到【<code>Service Mode</code>】，点击后面的【<code>Manage</code>】<br>
+2.在弹出的窗口中点击【<code>Install</code>】安装，点击安装后可能没什么反应，稍等片刻退出软件重新打开就可以了。<br>
+3.安装成功后，【<code>Service Mode</code>】旁边的地球标识会变为绿色，这时再开启 TUN Mode 就可以了。<br>
+提示：近期大部分浏览器默认已经开启“安全 DNS”功能，此功能会影响 TUN 模式劫持 DNS 请求导致反推域名失败，请在浏览器设置中关闭此功能以保证 TUN 模式正常运行；<br>
+如果你不知道怎么操作，关闭 TUN 模式就可以了。<br>
+<img src="https://Famousgavin.github.io/post-images/1677827570785.png" alt="" loading="lazy"><br>
+<img src="https://Famousgavin.github.io/post-images/1677827574442.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hello Gridea]]></title>
+        <id>https://Famousgavin.github.io/hello-gridea/</id>
+        <link href="https://Famousgavin.github.io/hello-gridea/">
+        </link>
+        <updated>2016-12-11T16:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+<!-- more -->
+<p><a href="https://github.com/getgridea/gridea">Github</a><br>
+<a href="https://gridea.dev/">Gridea 主页</a><br>
+<a href="http://fehey.com/">示例网站</a></p>
+<h2 id="特性">特性👇</h2>
+<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
+<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
+<p>🏷️  你可以对文章进行标签分组</p>
+<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
+<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
+<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
+<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
+<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
+<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
+<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
+<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
+<p>未来，它一定会成为你离不开的伙伴</p>
+<p>尽情发挥你的才华吧！</p>
+<p>😘 Enjoy~</p>
+]]></content>
+    </entry>
+</feed>
