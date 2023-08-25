@@ -1,0 +1,665 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://Famousgavin.github.io</id>
+    <title>Gavin Lee</title>
+    <updated>2023-08-25T01:45:17.139Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://Famousgavin.github.io"/>
+    <link rel="self" href="https://Famousgavin.github.io/atom.xml"/>
+    <subtitle>温故而知新</subtitle>
+    <logo>https://Famousgavin.github.io/images/avatar.png</logo>
+    <icon>https://Famousgavin.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2023, Gavin Lee</rights>
+    <entry>
+        <title type="html"><![CDATA[SQL Server触发器学习笔记]]></title>
+        <id>https://Famousgavin.github.io/test/</id>
+        <link href="https://Famousgavin.github.io/test/">
+        </link>
+        <updated>2021-02-24T09:29:15.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="触发器类型">触发器类型</h2>
+<p>SQL Server中有两种类型的触发器：AFTER触发器和INSTEAD OF触发器。AFTER触发器是在执行DML语句（INSERT、UPDATE或DELETE）后触发的，而INSTEAD OF触发器是在执行DML语句之前触发的。如果使用INSTEAD OF触发器，可以在执行DML语句之前修改或替换数据。<br>
+触发器事件<br>
+触发器可以在INSERT、UPDATE或DELETE语句执行之后自动执行。在定义触发器时，可以指定要监视的事件类型。例如，在定义触发器时，可以指定它应该在INSERT语句执行之后触发，如下所示：</p>
+<pre><code>CREATE TRIGGER tr_example
+ON example_table
+AFTER INSERT
+AS
+BEGIN
+-- 触发器主体
+END
+</code></pre>
+<p>在这个例子中，触发器将在example_table表中执行INSERT语句之后触发。</p>
+<h2 id="触发器主体">触发器主体</h2>
+<p>触发器主体是触发器中实际执行的代码。可以在触发器主体中使用任何有效的T-SQL语句，包括INSERT、UPDATE、DELETE、SELECT以及条件和循环结构。<br>
+在触发器主体中，可以使用两个特殊的表：inserted和deleted。这些表包含由DML语句插入、更新或删除的行的副本。插入的行存储在inserted表中，而删除的行存储在deleted表中。如果在UPDATE语句中修改了行，则旧行存储在deleted表中，而新行存储在inserted表中。<br>
+下面是一个示例触发器，当在example_table表中执行INSERT语句时，它将向example_log表中插入一条日志记录：</p>
+<pre><code>CREATE TRIGGER tr_example_insert
+ON example_table
+AFTER INSERT
+AS
+BEGIN
+  INSERT INTO example_log (log_date, message)
+  SELECT GETDATE(), 'New row inserted into example_table.'
+  FROM inserted;
+END
+</code></pre>
+<p>在这个触发器中，我们使用了inserted表来检索刚刚插入的行，并将日志记录插入到example_log表中。</p>
+<h2 id="触发器的优点和缺点">触发器的优点和缺点</h2>
+<p>触发器的优点是它们可以自动执行某些操作，从而简化了应用程序中的代码。触发器还可以在数据库层面上实施业务规则，从而确保数据的完整性和一致性。<br>
+触发器的缺点是它们可能会导致性能问题。如果触发器包含复杂的逻辑或在大型表上执行，可能会对数据库的性能产生负面影响。此外，触发器可能会使代码难以维护，因为它们在数据库层面上执行操作，而不是在应用程序代码中执行。</p>
+<h2 id="总结">总结</h2>
+<p>SQL Server触发器是一种强大的工具，可以在表发生变化时自动执行一些操作。在定义触发器时，可以指定要监视的事件类型和触发器主体中要执行的代码。触发器的优点是可以自动执行操作和实施业务规则，但它们可能会导致性能问题和代码维护难度。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[【Windows】➥ Clash for Windows【推荐】✔️]]></title>
+        <id>https://Famousgavin.github.io/clashforwin/</id>
+        <link href="https://Famousgavin.github.io/clashforwin/">
+        </link>
+        <updated>2018-02-24T09:09:38.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="注意事项">🚫注意事项</h2>
+<p>💡已经证实360/毒霸/2345等全家桶(包含安全卫士及杀毒)会拦截此软件导致无法使用，需要卸载后重启再试。如担心系统安全可以安装<a href="https://huorong.cn">火绒安全软件</a><br>
+💡如果电脑里安装过其他代理软件可能会产生冲突导致无法正常运行，包括谷歌、EDGE浏览器的第三方代理插件（例：谷歌访问助手）需要卸载后才能正常使用。<br>
+💡使用<strong>Windows</strong>宽带拨号上网时会无法使用本软件，需要切换到通过路由器或者WIFI上网。<br>
+💡<code>如果服务器全部显示timeout（超时）大概率是系统时间和北京时间有误差（大于2分钟），检查一下，最好同步一下系统时间</code>。</p>
+<hr>
+<h2 id="1-获取应用">1. 获取应用</h2>
+<p>软件版本更新较快，如果追新请点击进入【<a href="https://github.com/Fndroid/clash_for_windows_pkg/releases">官方Releases-英文版</a>】 页面下载。<br>
+下载解压后安装至磁盘运行 <code>Clash for Windows</code>。<br>
+⚠️（不建议安装至系统盘（C盘），安装至系统盘（C盘）可能会出现权限问题。<br>
+⚠️（由于软件需要更改系统的代理设置，权限比较敏感，第一次运行程序时请右键，选择【以管理员身份运行】</p>
+<ul>
+<li>百度网盘：<a href="https://pan.baidu.com/s/1VRysAOXGW3LNnbuufop2Qw">下载软件-中文版</a> <code>提取码：4tqy</code></li>
+</ul>
+<hr>
+<h2 id="2-快速导入">2. 快速导入</h2>
+<p>此处我们将指导您使用 「 <a class="btn btn-sm btnprimary" href="clash://install-config?url=https://v2.bohe7.icu/api/v1/client/subscribe?token=9f7fbc0ddcddf07aae5f5f83a4f6c3da"></i>一键导入 </a>」 方式完成配置。</p>
+<p>注意：如果「 **导入到Clash&amp;&amp;」失败，也可以手动添加订阅。<br>
+步骤：点击网站仪表盘的【<strong>一键订阅</strong>】 &gt; 【<strong>复制订阅地址</strong>】复制，打开App，然后点击【**Profiles **】&gt;点击地址栏后面的【粘贴】图标，点击【<strong>Download</strong>】。</p>
+<p>分组名称：<strong>www.bohe7.com</strong><br>
+Url（你的订阅地址）：<u>https://v2.bohe7.icu/api/v1/client/subscribe?token=9f7fbc0ddcddf07aae5f5f83a4f6c3da</u><br>
+<img src="https://famousgavin-1253297264.cos.ap-guangzhou.myqcloud.com/blog/%E9%85%8D%E5%9B%BE/windows-clash-1.png?q-sign-algorithm=sha1&amp;q-ak=AKIDbbg-pSL6v6ovEeiRk8QL7y79oU4yq01XWKBf5WRVQezyFPXFMcWU5Fh_6P8KCR9_&amp;q-sign-time=1692859947;1692863547&amp;q-key-time=1692859947;1692863547&amp;q-header-list=host&amp;q-url-param-list=ci-process&amp;q-signature=6f3af4ca576f2284799b90f2979019f761e1e748&amp;x-cos-security-token=1rHXwIf2zi4Sz2mjztkb1fHmdgiwqkoabd09ffbc5e1f53541974b42f91a32626EsOu6qYAY2N20qA-_QLLluGkAjkUby2_HhMOIQk_AHUzhucvHHuByZ8czdR28KmImYFj2iQUk_tz5GDOZ7qXSGeGWd3Wv31Gx4SmzOQJk25l7pOkTHHCj-26Thyb_y228oDTQDXz-khI665eHC1FNX7hXLmt7BNnYq-qdSAta1yT8aQk9O3gRWXufIFgpBTB&amp;ci-process=originImage" alt="" loading="lazy"><br>
+<img src="https://famousgavin-1253297264.cos.ap-guangzhou.myqcloud.com/blog/%E9%85%8D%E5%9B%BE/windows-clash-5.png?q-sign-algorithm=sha1&amp;q-ak=AKIDTZq97uPeWbV2cGu-GDlji42aArEn8RJXdxVBldOI5edzWuVP3LqoMM8F4kZ_lPZw&amp;q-sign-time=1692860122;1692863722&amp;q-key-time=1692860122;1692863722&amp;q-header-list=host&amp;q-url-param-list=ci-process&amp;q-signature=b66e958a6ac1497c6dfc04098c13b935050982d2&amp;x-cos-security-token=i7FVpdwd8u78mhnc9ag9S7PwiqUPrMga0e508a539f904fa1b1daddac86e532d0-7_CEcoK5VfLKjX7EPbYCp0SH9H69k7h88ZuSVwGKwuiB_PixCqtVV2preC8x-mek8LqMFJkLTNrZsULTbrwyZiZLVr7CU13tfl9dkZXXNEzgSnEmNW_dnQLkthU4ORGc6SEiBWTrFyCh8A_KiTSNkL2Tz8jHKEQQqSobFf2s-NciIpdoPc3xBFm6gtCkmTe&amp;ci-process=originImage" alt="" loading="lazy"></p>
+<hr>
+<h2 id="3-开始连接">3. 开始连接</h2>
+<ol>
+<li>返回到初始界面General，并且打开系统连接！</li>
+<li>System Proxy即为代理开关</li>
+<li>如果System Proxy开关已经打开，此时已经可以使用本站提供的服务了。<br>
+<img src="https://famousgavin-1253297264.cos.ap-guangzhou.myqcloud.com/blog/%E9%85%8D%E5%9B%BE/windows-clash-2.png?q-sign-algorithm=sha1&amp;q-ak=AKID3UIFq9-xHqrTp7PC2IBIFvjO2tkpxONJ5AF1UOu5XXWd7QhD3kXrCgd76hKXNdLm&amp;q-sign-time=1692860013;1692863613&amp;q-key-time=1692860013;1692863613&amp;q-header-list=host&amp;q-url-param-list=ci-process&amp;q-signature=f4e887113b4d5dbc8f9850264cd0ed96c60accb7&amp;x-cos-security-token=i7FVpdwd8u78mhnc9ag9S7PwiqUPrMga3ce1b7d66bff99ded4d5bee25ddd48c9-7_CEcoK5VfLKjX7EPbYCnXsVg7WiZqqKn35Osts83I40jL1Rqe6JSxVuhc3FY13rjn7HLUhI7m_jThlZEVaP8WTTiGMQs6mudtaBHUG5x1L3TtP5F3qg_WF63hfWrzytqCpvXBaNcbRLw-Iwm7YbphPL4NRNdHlDU6UEigMc7Hn7zmBZSaYEPxba-739YWq&amp;ci-process=originImage" alt="" loading="lazy"></li>
+</ol>
+<hr>
+<h2 id="4-软件简介">4. 软件简介</h2>
+<p>功能说明</p>
+<ol>
+<li><strong>General</strong> - 系统配置及开关页面</li>
+<li><strong>Proxies</strong> - 节点线路</li>
+<li><strong>Profiles</strong> - 订阅管理<br>
+代理模式</li>
+<li><strong>Global</strong> - 全局模式，所有数据都会通过代理连接</li>
+<li><strong>Rule</strong> - 规则模式，自动判断数据是否需要通过代理连接<br>
+⚠️日常使用时请保持【Rule】模式，否则可能会影响使用。</li>
+<li><strong>Driect</strong> - 直连模式，相当于关闭代理</li>
+<li><strong>Script</strong> - 脚本模式</li>
+</ol>
+<hr>
+<h2 id="5-关于-tun-模式的说明">5. 关于 TUN 模式的说明</h2>
+<p>什么是 TUN 模式？<br>
+对于不遵循系统代理的软件（软件是不加载系统代理的），开启 TUN 模式后，CFW 会加载虚拟网卡至系统，TUN 模式可以接管其流量并交由 CFW 处理，在 <code>Windows</code> 中，TUN 模式性能比 TAP 模式好；<br>
+比较适用于各种安卓模拟器（用来玩外服游戏）以及 <code>Telegram</code> 等需要代理的软件，如果你不需要这个功能则不用开启 TUN 模式。<br>
+1.点击【<code>Genera</code>l】找到【<code>Service Mode</code>】，点击后面的【<code>Manage</code>】<br>
+2.在弹出的窗口中点击【<code>Install</code>】安装，点击安装后可能没什么反应，稍等片刻退出软件重新打开就可以了。<br>
+3.安装成功后，【<code>Service Mode</code>】旁边的地球标识会变为绿色，这时再开启 TUN Mode 就可以了。<br>
+提示：近期大部分浏览器默认已经开启“安全 DNS”功能，此功能会影响 TUN 模式劫持 DNS 请求导致反推域名失败，请在浏览器设置中关闭此功能以保证 TUN 模式正常运行；<br>
+如果你不知道怎么操作，关闭 TUN 模式就可以了。<br>
+<img src="https://famousgavin-1253297264.cos.ap-guangzhou.myqcloud.com/blog/%E9%85%8D%E5%9B%BE/windows-clash-3.png?q-sign-algorithm=sha1&amp;q-ak=AKIDz6TM3YD5TKqXXWN-r5x8zQkheXSPQXb-Hs3ne83MZ57DtNu7Wv5xx1wNgCVvm2rp&amp;q-sign-time=1692860045;1692863645&amp;q-key-time=1692860045;1692863645&amp;q-header-list=host&amp;q-url-param-list=ci-process&amp;q-signature=8c1928dc728cb5158a8babab5d53f360ccabede7&amp;x-cos-security-token=i7FVpdwd8u78mhnc9ag9S7PwiqUPrMgab78d606b52488f3c84407f50361ed49e-7_CEcoK5VfLKjX7EPbYCveyj3jXxhvqbi35vzuWAzugEzweNhiiz4wW7nYdnc_AhgPsC2Mdwcz_BzVF3_VuRsg0-JvSkhVazN_DsoqeXfOvBBLwgI9OSqjnhYcS2Rr7DS7_zEviai1xp2OlqJZ_zwMxt-VqOG3bzENlzPkDEY8an8f7uYMh4uYnoBs1j4DJ&amp;ci-process=originImage" alt="" loading="lazy"><br>
+<img src="https://famousgavin-1253297264.cos.ap-guangzhou.myqcloud.com/blog/%E9%85%8D%E5%9B%BE/windows-clash-4.png?q-sign-algorithm=sha1&amp;q-ak=AKIDFh-jt6pl5jDgjGJwJYLJl_2aXB1ooHy58iHHrfA_8tFJKiT0Y8SODkbDxArHUy-Y&amp;q-sign-time=1692860072;1692863672&amp;q-key-time=1692860072;1692863672&amp;q-header-list=host&amp;q-url-param-list=ci-process&amp;q-signature=8840e660ef5965e5a8cc7aa71660ee500c921580&amp;x-cos-security-token=i7FVpdwd8u78mhnc9ag9S7PwiqUPrMga4ab3f40e2ccdb14505652ba5d07d90f4-7_CEcoK5VfLKjX7EPbYCuvaRP5P_Bc-RsyUUMRH5oL2CYh98-zXvE6n39fGzyCtw19ty-VZyW41V-idRLmxCiBbW4b2jXj8AykvvRrfCMeakaY-9yBOCjsGUPCupQQSiH0Rbuwgm_0UJLt6F96vQg6fJ7rKCTyzCvmQFlq_k_ybhtyj0X3Z_bjQgyOkZcOu&amp;ci-process=originImage" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SQLServer 日期查询]]></title>
+        <id>https://Famousgavin.github.io/sqlserver_date/</id>
+        <link href="https://Famousgavin.github.io/sqlserver_date/">
+        </link>
+        <updated>2017-08-17T03:00:25.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="sqlserver-日期函数大全">SQLServer 日期函数大全</h2>
+<h2 id="统计语句">统计语句</h2>
+<ul>
+<li>统计当前【&gt; 当天 00 点以后的数据】</li>
+</ul>
+<pre><code>SELECT * FROM 表 WHERE CONVERT (Nvarchar, dateandtime, 111) = CONVERT (Nvarchar, GETDATE (), 111)   ORDER BY dateandtime DESC
+</code></pre>
+<ul>
+<li>统计本周</li>
+</ul>
+<pre><code>SELECT * FROM 表 WHERE datediff (week,[dateadd],getdate ())=0
+</code></pre>
+<ul>
+<li>统计本月</li>
+</ul>
+<pre><code>SELECT * FROM 表 WHERE datediff (month,[dateadd],getdate ())=0
+</code></pre>
+<ul>
+<li>统计当前</li>
+</ul>
+<pre><code>SELECT * FROM 表 WHERE datediff (day,[dateadd],getdate ())=0
+Select * From table with(nolock) Where Convert(varchar(10),[CreateTime],120) = Convert(varchar(10),getDate(),120)
+</code></pre>
+<h2 id="时间函数">时间函数</h2>
+<ul>
+<li>当前系统日期、时间</li>
+</ul>
+<pre><code>select getdate()
+</code></pre>
+<ul>
+<li>dateadd   在向指定日期加上一段时间的基础上，返回新的 datetime 值，例如：向日期加上 2 天</li>
+</ul>
+<pre><code>select dateadd (day,2,'2004-10-15')   -- 返回：2004-10-17 00:00:00.000
+</code></pre>
+<ul>
+<li>datediff 返回跨两个指定日期的日期和时间边界数</li>
+</ul>
+<pre><code>select datediff (day,'2004-09-01','2004-09-18')    -- 返回：17
+</code></pre>
+<ul>
+<li>datepart 返回代表指定日期的指定日期部分的整数</li>
+</ul>
+<pre><code>SELECT DATEPART (month, '2004-10-15')   -- 返回 10
+</code></pre>
+<ul>
+<li>datename 返回代表指定日期的指定日期部分的字符串</li>
+</ul>
+<pre><code>SELECT datename (weekday, '2004-10-15')   -- 返回：星期五
+</code></pre>
+<ul>
+<li>day (), month (),year () -- 可以与 datepart 对照一下</li>
+</ul>
+<pre><code>select 当前日期 = convert (varchar (10),getdate (),120)
+select 当前时间 = convert (varchar (8),getdate (),114)
+select datename(dw,'2004-10-15')
+select 本年第多少周 = datename (week,'2004-10-15')
+select 今天是周几 = datename (weekday,'2004-10-15')
+</code></pre>
+<ul>
+<li>求相差天数</li>
+</ul>
+<pre><code>select   datediff(day,'2004-01-01',getdate())
+</code></pre>
+<ul>
+<li>一个月第一天的</li>
+</ul>
+<pre><code>SELECT   DATEADD(mm,   DATEDIFF(mm,0,getdate()),   0)
+</code></pre>
+<ul>
+<li>本周的星期一</li>
+</ul>
+<pre><code>SELECT   DATEADD(wk,   DATEDIFF(wk,0,getdate()),   0)  
+select   dateadd(wk,datediff(wk,0,getdate()),6)  
+</code></pre>
+<ul>
+<li>一年的第一天</li>
+</ul>
+<pre><code>SELECT   DATEADD(yy,   DATEDIFF(yy,0,getdate()),   0)
+</code></pre>
+<ul>
+<li>季度的第一天</li>
+</ul>
+<pre><code>SELECT   DATEADD(qq,   DATEDIFF(qq,0,getdate()),   0)
+</code></pre>
+<ul>
+<li>当天的半夜</li>
+</ul>
+<pre><code>SELECT   DATEADD(dd,   DATEDIFF(dd,0,getdate()),   0)
+</code></pre>
+<ul>
+<li>上个月的最后一天</li>
+</ul>
+<pre><code>SELECT   dateadd(ms,-3,DATEADD(mm,  DATEDIFF(mm,0,getdate()),   0))
+</code></pre>
+<ul>
+<li>去年的最后一天</li>
+</ul>
+<pre><code>SELECT   dateadd(ms,-3,DATEADD(yy,   DATEDIFF(yy,0,getdate()),   0))
+</code></pre>
+<ul>
+<li>本月的最后一天</li>
+</ul>
+<pre><code>SELECT   dateadd(ms,-3,DATEADD(mm,   DATEDIFF(m,0,getdate())+1,   0))
+</code></pre>
+<ul>
+<li>本年的最后一天</li>
+</ul>
+<pre><code>SELECT   dateadd(ms,-3,DATEADD(yy,   DATEDIFF(yy,0,getdate())+1,   0))
+</code></pre>
+<ul>
+<li>本月的第一个星期一</li>
+</ul>
+<pre><code>select   DATEADD(wk,  DATEDIFF(wk,0,dateadd(dd,6-datepart(day,getdate()),getdate())),   0)
+</code></pre>
+<ul>
+<li>查询本周注册人数</li>
+</ul>
+<pre><code>select   count(*)   from   [user]  
+where   datediff(week,create_day-1,getdate())=0
+</code></pre>
+<ul>
+<li>上周注册人数</li>
+</ul>
+<pre><code>select   count(*)   from   [user]  
+where   datediff(week,create_day-1,getdate())=1
+</code></pre>
+<ul>
+<li>本月注册人数</li>
+</ul>
+<pre><code>select   count(*)   from   [user]  
+where   datediff(month,create_day,getdate())=0
+</code></pre>
+<ul>
+<li>上月注册人数</li>
+</ul>
+<pre><code>select   count(*)   from   [user]  
+where   datediff(month,create_day,getdate())=1
+</code></pre>
+<p>如果要效率，用一下方式</p>
+<ul>
+<li>查询本周注册人数</li>
+</ul>
+<pre><code>select   count(*)   from   [user]  
+where   create_day&gt;=dateadd(day,2-datepart(weekday,getdate()),convert(varchar,getdate(),112))  
+and   create_day&lt;dateadd(day,9-datepart(weekday,getdate()),convert(varchar,getdate(),112))
+</code></pre>
+<ul>
+<li>上周注册人数</li>
+</ul>
+<pre><code>select   count(*)   from   [user]  
+where   create_day&gt;=dateadd(day,-5-datepart(weekday,getdate()),convert(varchar,getdate(),112))  
+and   create_day&lt;dateadd(day,2-datepart(weekday,getdate()),convert(varchar,getdate(),112))
+</code></pre>
+<ul>
+<li>本月注册人数</li>
+</ul>
+<pre><code>select   count(*)   from   [user]  
+where   create_day&gt;=dateadd(day,1-day(getdate()),convert(varchar,getdate(),112))  
+and   create_day&lt;dateadd(month,1,dateadd(day,1-day(getdate()),convert(varchar,getdate(),112)))
+</code></pre>
+<ul>
+<li>上月注册人数</li>
+</ul>
+<pre><code>select   count(*)   from   [user]  
+where   create_day&gt;=dateadd(month,-1,dateadd(day,1-day(getdate()),convert(varchar,getdate(),112)))  
+and   create_day&lt;dateadd(day,1-day(getdate()),convert(varchar,getdate(),112))
+</code></pre>
+<ul>
+<li>本周</li>
+</ul>
+<pre><code>select   count(*)   from   User  
+where   datediff(dd,create_day,getdate())   &lt;=   datepart(dw,getdate())
+</code></pre>
+<ul>
+<li>上周</li>
+</ul>
+<pre><code>select   count(*)   from   User  
+where   datediff(dd,create_day,(getdate()   -   datepart(dw,getdate())))   &lt;=   7
+</code></pre>
+<ul>
+<li>本月</li>
+</ul>
+<pre><code>select   count(*)   from   User  
+where   datepart(mm,create_day)   =   datepart(mm,getdate())
+</code></pre>
+<ul>
+<li>上月</li>
+</ul>
+<pre><code>select   count(*)   from   User  
+where   datepart(mm,create_day)   =   datepart(mm,getdate())   -   1
+</code></pre>
+<ul>
+<li>本周注册人数</li>
+</ul>
+<pre><code>select   count(*)   from   [User]  
+where   datediff(dd,create_day,getdate())   &lt;=   datepart(dw,getdate())
+</code></pre>
+<ul>
+<li>上周注册人数</li>
+</ul>
+<pre><code>select   count(*)   from   [User]  
+where   datediff(dd,create_day,(getdate()   -   datepart(dw,getdate())))   &lt;=   7
+</code></pre>
+<ul>
+<li>本月注册人数</li>
+</ul>
+<pre><code>select   count(*)   from   [User]  
+where   datepart(mm,create_day)   =   datepart(mm,getdate())
+</code></pre>
+<ul>
+<li>上月注册人数</li>
+</ul>
+<pre><code>select   count(*)   from   [User]  
+where   datepart(mm,create_day)   =   datepart(mm,getdate())   -   1
+</code></pre>
+<ul>
+<li>查询今日所有</li>
+</ul>
+<pre><code>SELECT * from feedback WHERE (DATEDIFF(d,fedtime,GETDATE())=0) ORDER BY fedid DESC
+
+month (create_day)=month (getdate ()) 本月  
+
+month (create_day)=month (getdate ())-1   上月
+
+今天的所有数据：select * from 表名 where DateDiff (dd,datetime 类型字段，getdate ())=0
+
+昨天的所有数据：select * from 表名 where DateDiff (dd,datetime 类型字段，getdate ())=1
+
+7 天内的所有数据：select * from 表名 where DateDiff (dd,datetime 类型字段，getdate ())&lt;=7
+
+30 天内的所有数据：select * from 表名 where DateDiff (dd,datetime 类型字段，getdate ())&lt;=30
+
+本月的所有数据：select * from 表名 where DateDiff (mm,datetime 类型字段，getdate ())=0
+
+本年的所有数据：select * from 表名 where DateDiff (yy,datetime 类型字段，getdate ())=0
+</code></pre>
+<h2 id="系统函数">系统函数</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">系统函数</th>
+<th style="text-align:left">函数</th>
+<th style="text-align:left">参数 / 功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">getDate</td>
+<td style="text-align:left">( )</td>
+<td style="text-align:left">返回系统目前的日期与时间</td>
+</tr>
+<tr>
+<td style="text-align:left">DateDiff</td>
+<td style="text-align:left">(interval,date1,date2)</td>
+<td style="text-align:left">以 interval 指定的方式，返回date2 与date1 两个日期之间的差值 date2-date1</td>
+</tr>
+<tr>
+<td style="text-align:left">DateAdd</td>
+<td style="text-align:left">(interval,number,date)</td>
+<td style="text-align:left">以 interval 指定的方式，加上 number 之后的日期</td>
+</tr>
+<tr>
+<td style="text-align:left">DatePart</td>
+<td style="text-align:left">(interval,date)</td>
+<td style="text-align:left">返回日期 date 中，interval 指定部分所对应的整数值</td>
+</tr>
+<tr>
+<td style="text-align:left">DateName</td>
+<td style="text-align:left">(interval,date)</td>
+<td style="text-align:left">返回日期 date 中，interval 指定部分所对应的字符串名称</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="参数-interval-的设定值">参数 interval 的设定值</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">值</th>
+<th style="text-align:left">缩写（Sql Server）</th>
+<th style="text-align:left">Access 和 ASP</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Year</td>
+<td style="text-align:left">Yy</td>
+<td style="text-align:left">yyyy</td>
+<td style="text-align:left">年</td>
+</tr>
+<tr>
+<td style="text-align:left">Quarter</td>
+<td style="text-align:left">Qq</td>
+<td style="text-align:left">q</td>
+<td style="text-align:left">季</td>
+</tr>
+<tr>
+<td style="text-align:left">Month</td>
+<td style="text-align:left">Mm</td>
+<td style="text-align:left">m</td>
+<td style="text-align:left">月</td>
+</tr>
+<tr>
+<td style="text-align:left">Day of year</td>
+<td style="text-align:left">Dy</td>
+<td style="text-align:left">y</td>
+<td style="text-align:left">一年的日数，一年中的第几日</td>
+</tr>
+<tr>
+<td style="text-align:left">Day</td>
+<td style="text-align:left">Dd</td>
+<td style="text-align:left">d</td>
+<td style="text-align:left">日</td>
+</tr>
+<tr>
+<td style="text-align:left">Weekday</td>
+<td style="text-align:left">Dw</td>
+<td style="text-align:left">w</td>
+<td style="text-align:left">一周的日数，一周中的第几日</td>
+</tr>
+<tr>
+<td style="text-align:left">Week</td>
+<td style="text-align:left">Wk</td>
+<td style="text-align:left">ww</td>
+<td style="text-align:left">周，一年中的第几周</td>
+</tr>
+<tr>
+<td style="text-align:left">Hour</td>
+<td style="text-align:left">Hh</td>
+<td style="text-align:left">h</td>
+<td style="text-align:left">时</td>
+</tr>
+<tr>
+<td style="text-align:left">Minute</td>
+<td style="text-align:left">Mi</td>
+<td style="text-align:left">n</td>
+<td style="text-align:left">分钟</td>
+</tr>
+<tr>
+<td style="text-align:left">Second</td>
+<td style="text-align:left">Ss</td>
+<td style="text-align:left">s</td>
+<td style="text-align:left">秒</td>
+</tr>
+<tr>
+<td style="text-align:left">Millisecond</td>
+<td style="text-align:left">Ms</td>
+<td style="text-align:left">-</td>
+<td style="text-align:left">毫秒</td>
+</tr>
+</tbody>
+</table>
+<p>access 和 asp 中用 date () 和 now () 取得系统日期时间；其中 DateDiff,DateAdd,DatePart 也同是能用于 Access 和 asp 中，这些函数的用法也类似</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[CAGradientLayer的应用-渐变进度条]]></title>
+        <id>https://Famousgavin.github.io/gradient_layer/</id>
+        <link href="https://Famousgavin.github.io/gradient_layer/">
+        </link>
+        <updated>2015-12-10T03:00:25.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>分享是一种美德。<br>
+座右铭：以前总以为坚持会让我们强大。</p>
+</blockquote>
+<h2 id="️-开始">✍️ 开始</h2>
+<p>很久没写博客了，只要一停下来就很难在坚持，是要好好总结下最近工作内容，分享给大家。正在往大神方向一步一步走着。。。<br>
+   先看看效果：</p>
+<figure data-type="image" tabindex="1"><img src="https://famousgavin-1253297264.cos.ap-guangzhou.myqcloud.com/blog/%E9%85%8D%E5%9B%BE/ios-CAGradientLayer-1.webp?q-sign-algorithm=sha1&amp;q-ak=AKID1dH9q6pvhizELkdsJIWI8P8AqPv0HiBKzRfpf5dK6_gXYJ1oTbLk_fLE6-k9GgAJ&amp;q-sign-time=1692871824;1692875424&amp;q-key-time=1692871824;1692875424&amp;q-header-list=host&amp;q-url-param-list=ci-process&amp;q-signature=a071ea10ae5be2b4b3df28089f326fea5ced0cba&amp;x-cos-security-token=1rHXwIf2zi4Sz2mjztkb1fHmdgiwqkoab79da14c060d533979e4d01c4e6359a0EsOu6qYAY2N20qA-_QLLlvj3OBAKIs9YWaHxbm31N4a5oreW6XvsZLuJfUstj95md-0BsRHUEyWKzDbHpU_tx6qJeEmVAl8i1LdR55AJoSix9H6awwSC66Va_7Eobt7LmgvexXyGaywPeg4ip8PkYMKDJA9aypKIvonwR6zQwQJ1nM0BJDJuzsZp_h3b9kCh&amp;ci-process=originImage" alt="图1.gif" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://famousgavin-1253297264.cos.ap-guangzhou.myqcloud.com/blog/%E9%85%8D%E5%9B%BE/ios-CAGradientLayer-2.webp?q-sign-algorithm=sha1&amp;q-ak=AKIDsGyEh1ba0uzOFOGcyPmZbGTuRZU6Uoddrg2CbWZtYyAotPGPL03rfesWyVgr8mx_&amp;q-sign-time=1692871832;1692875432&amp;q-key-time=1692871832;1692875432&amp;q-header-list=host&amp;q-url-param-list=ci-process&amp;q-signature=39d4480a773e8da4211bdcbb5dd64acfac944a6f&amp;x-cos-security-token=i7FVpdwd8u78mhnc9ag9S7PwiqUPrMga0fd3b03426806d20c41badad4a79fdab-7_CEcoK5VfLKjX7EPbYClBRJbcWUeQZGz7EZyTRnsV8Txmaqm18y9MDlGFkRCuKO3Fyi_F0F8aDYFRaJNKQeGibHnRh7I5jLiWoblm5B0yZcJlPgHFPfCN-MZ_Xq3IjugCMtkdXJMXOby1QaoJLsbxE_nrALwryqJzSUmYPAblohPjEliehambwINGWIp9j&amp;ci-process=originImage" alt="图2.gif" loading="lazy"></figure>
+<p>其实很简单，要用到<code>UIView</code>的<code>CALayer</code>,<code>CAGradientLayer</code>是<code>CALayer</code>的一个子类.<br>
+我们将是使用<code>CAGradientLayer</code>的一些属性：<code>colors</code>, <code>startPoint</code>, <code>endPoint</code>，<code>mask</code><br>
+说道<code>startPoint</code> 和<code>endPoint</code> 我们必须明白iOS系统中<code>CALayer</code>的坐标系统：</p>
+<figure data-type="image" tabindex="3"><img src="https://famousgavin-1253297264.cos.ap-guangzhou.myqcloud.com/blog/%E9%85%8D%E5%9B%BE/ios-CAGradientLayer-3.webp?q-sign-algorithm=sha1&amp;q-ak=AKIDpEs39BIYlNOsa1uAy477yy9i_GtAmlilyHPK4jTXBeW3ZsirHYVzVhSrN1MHE3BA&amp;q-sign-time=1692871853;1692875453&amp;q-key-time=1692871853;1692875453&amp;q-header-list=host&amp;q-url-param-list=ci-process&amp;q-signature=4ac13623a0c8d02c8251c701ae7dcecd4078cde8&amp;x-cos-security-token=i7FVpdwd8u78mhnc9ag9S7PwiqUPrMga9adc408006d38440f85091d403457f39-7_CEcoK5VfLKjX7EPbYCvGihZFpdb7jav5xlRAujLSEv1oM8NdRCuK1zPZhHAXGhvteY8qvsw-A29-_qYEEHeiqbLeXIp1SiGdfsGbBdVPc_IPH_PBXIyMKsLGWZqcz5RCcjFMzB8PpSzFLdoOnzwKcBo5nU1kpcrDIey-OALOao6FeWjuzATiIsMC1ZZbT&amp;ci-process=originImage" alt="图3.png" loading="lazy"></figure>
+<p>先创建<code>UIView</code>的一个子类<code>GradualProgressView</code>，并且重写<br>
+<code>- (instancetype)initWithFrame:(CGRect )frame:</code>方法。<br>
+在初始化方法中创建对象并且确认坐标系，坐标系不同的值有不同的效果，自己可以尝试下：</p>
+<pre><code>CAGradientLayer *layer = (CAGradientLayer *)[self layer];
+[layer setStartPoint:CGPointMake(0.0, 0.5)];
+[layer setEndPoint:CGPointMake(1.0, 0.5)];
+</code></pre>
+<p>然后创建颜色渐变的<code>UIColor</code>对象并且用数组保存起来赋值给<code>CAGradientLayer</code>的<code>colors</code>属性：</p>
+<pre><code>NSMutableArray *colorsArray = [NSMutableArray array];
+for (NSInteger i = 0; i &lt;= 360; i += 5) {
+  UIColor *color = [UIColor colorWithHue:1.0 * i / 360
+                              saturation:1.0
+                              brightness:1.0
+                                   alpha:1.0];
+  [colorsArray addObject:(id)[color CGColor]];
+}
+[layer setColors:[NSArray arrayWithArray:colorsArray]];
+</code></pre>
+<p>现在运行的效果是：</p>
+<figure data-type="image" tabindex="4"><img src="https://famousgavin-1253297264.cos.ap-guangzhou.myqcloud.com/blog/%E9%85%8D%E5%9B%BE/ios-CAGradientLayer-4.webp?q-sign-algorithm=sha1&amp;q-ak=AKIDuvm2avKcEs45QIc28fG7d7nAGfaUQK3QLXmZnNwRRAci5ysREL67NIHhTZ34AnuX&amp;q-sign-time=1692871878;1692875478&amp;q-key-time=1692871878;1692875478&amp;q-header-list=host&amp;q-url-param-list=ci-process&amp;q-signature=139f76db2852ac7d7f281f5687d5e692d3ce1e6b&amp;x-cos-security-token=i7FVpdwd8u78mhnc9ag9S7PwiqUPrMga36a2d7cfb253a5a0fe2faa107fde1040-7_CEcoK5VfLKjX7EPbYCutukKPQhvnrGZ39-VNXIMdHhJ5v0ZFPkz6VX9t-M_0K851try2BdhAwEHZj6Ds8Zo84SMiQkPXCEcxz7o2MZhlBF4TkZOjvMDyyT6dbHGEA1MYPDTNzIzch06oqK86_QJEN58A6_kkL1e3JhbPRd6uQf11faY19lAeCP3cxRoQ-&amp;ci-process=originImage" alt="图4.png" loading="lazy"></figure>
+<p>现在要添加一个移动的动画，我们可以获取<code>CAGradientLayer</code>的<code>colors</code>属性改变数组里面的顺序，并添加上动画：</p>
+<pre><code>CAGradientLayer *layer = (CAGradientLayer *)[self layer];
+NSMutableArray *colorArray = [[layer colors] mutableCopy];
+UIColor *lastColor = [colorArray lastObject];
+[colorArray removeLastObject];
+[colorArray insertObject:lastColor atIndex:0];
+NSArray *shiftedColors = [NSArray arrayWithArray:colorArray];
+[layer setColors:shiftedColors];
+CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@&quot;gavin_colors&quot;];
+[animation setToValue:shiftedColors];
+[animation setDuration:0.08];
+[animation setFillMode:kCAFillModeForwards];
+[animation setDelegate:self];
+[layer addAnimation:animation forKey:@&quot;gavin_animateGradient&quot;];
+</code></pre>
+<p>为了移动动画可以一直持续，我们要设置动画的代理，并实现动画结束的代理方法，并在结束方法中在重复执行上面的动作。就实现了持续移动的动画。</p>
+<pre><code>动画结束的代理方法：
+- (void)animationDidStop:(CAAnimation *)animation finished:(BOOL)flag
+</code></pre>
+<p>并在初始化方法中触发动画的开始。</p>
+<p>为了实现进度，我们需要增加二个属性，<code>maskLayer</code>用来遮挡和<code> progress</code>留给用户设置当前进度：</p>
+<pre><code>/**  Progress values go from 0.0 to 1.0  */
+@property (nonatomic, assign) CGFloat progress;
+/**  遮挡层  */
+@property (nonatomic, strong) CALayer *maskLayer;
+</code></pre>
+<p>初始化遮挡层并利用<code>CAGradientLayer</code>的<code>mask</code>属性实现遮挡：</p>
+<pre><code>self.maskLayer = [CALayer layer];
+[self.maskLayer setFrame:CGRectMake(0.0, 0.0, 0.0, frame.size.height)];
+[self.maskLayer setBackgroundColor:[[UIColor blackColor] CGColor]];
+[layer setMask:self.maskLayer];
+</code></pre>
+<p>当用户修改<code>progress</code>属性的值时我们要做相对应的改变，代码如下：</p>
+<pre><code>- (void)setProgress:(CGFloat)value {
+  if (_progress != value) {
+    _progress = MIN(1.0, fabs(value));
+    [self setNeedsLayout];
+  }
+}
+- (void)layoutSubviews {
+  CGRect maskRect = [self.maskLayer frame];
+  maskRect.size.width = CGRectGetWidth(self.bounds) * self.progress;
+  [self.maskLayer setFrame:maskRect];
+}
+</code></pre>
+<h2 id="结束">🌛 结束</h2>
+<p>这样就基本完成了，我们只需要创建<code>GradualProgressView</code>对象，就实现颜色渐变的进度条了。有什么不对的地方多多指教。希望大家多多关注我<a href="https://github.com/Gavin-ldh">Git</a> 。<br>
+最后附上具体的项目：<a href="https://github.com/KnowledgeLearning/ColorGradualProgress">ColorGradualProgress</a></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Swift自定义运算符]]></title>
+        <id>https://Famousgavin.github.io/swift-operator/</id>
+        <link href="https://Famousgavin.github.io/swift-operator/">
+        </link>
+        <updated>2015-07-09T10:24:00.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="自定义运算符">自定义运算符</h2>
+<p>标准的运算符不够玩，那你可以声明一些个性的运算符，但个性的运算符只能使用这些字符/ = - + * % &lt; &gt;！&amp; | ^。~。</p>
+<p>新的运算符声明需在全局域使用operator关键字声明，可以声明为前置，中置或后置的。</p>
+<pre><code>operator prefix +++ {}
+</code></pre>
+<p>这段代码定义了一个新的前置运算符叫+++，此前Swift并不存在这个运算符。此处为了演示，我们让+++对Vector2D对象的操作定义为 双自增 这样一个独有的操作，这个操作使用了之前定义的加赋运算实现了自已加上自己然后返回的运算。</p>
+<pre><code>@prefix @assignment func +++ (inout vector: Vector2D) -&gt; Vector2D {    vector += vector    return vector}
+</code></pre>
+<pre><code>Vector2D 的 +++ 的实现和 ++ 的实现很接近, 唯一不同的前者是加自己, 后者是加值为 (1.0,1.0) 的向量.
+</code></pre>
+<pre><code>var toBeDoubled = Vector2D(x: 1.0, y: 4.0)let afterDoubling = +++toBeDoubled// toBeDoubled 现在是 (2.0, 8.0)// afterDoubling 现在也是 (2.0, 8.0)
+</code></pre>
+<p>自定义中置运算符的优先级和结合性<br>
+可以为自定义的中置运算符指定优先级和结合性。可以回头看看优先级和结合性解释这两个因素是如何影响多种中置运算符混合的表达式的计算的。</p>
+<p>结合性(associativity)的值可取的值有left，right和none。左结合运算符跟其他优先级相同的左结合运算符写在一起时，会跟左边的操作数结合。同理，右结合运算符会跟右边的操作数结合。而非结合运算符不能跟其他相同优先级的运算符写在一起。</p>
+<p>结合性(associativity)的值默认为none，优先级(precedence)默认为100。</p>
+<p>以下例子定义了一个新的中置符+-，是左结合的left，优先级为140。</p>
+<pre><code>operator infix +- { associativity left precedence 140 }func +- (left: Vector2D, right: Vector2D) -&gt; Vector2D {    return Vector2D(x: left.x + right.x, y: left.y - right.y)}let firstVector = Vector2D(x: 1.0, y: 2.0)let secondVector = Vector2D(x: 3.0, y: 4.0)let plusMinusVector = firstVector +- secondVector// plusMinusVector 此时的值为 (4.0, -2.0)
+</code></pre>
+<p>这个运算符把两个向量的x相加，把向量的y相减。因为他实际是属于加减运算，所以让它保持了和加法一样的结合性和优先级(left和140)。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[软件设计的不同模型：瀑布式、快速原型法以及迭代式]]></title>
+        <id>https://Famousgavin.github.io/pm-software-pattern/</id>
+        <link href="https://Famousgavin.github.io/pm-software-pattern/">
+        </link>
+        <updated>2015-04-15T03:00:25.000Z</updated>
+        <content type="html"><![CDATA[<p>我就软件设计开发过程中必须要完成的工作进行梳理，而我们需要注意到，这些需要完成的工作，在不同的开发流程模型的指导下可能有不同的时间要求，而我们需要关注的是在这个阶段内需要完成的工作，以及这个阶段内我们需要沟通的人员。</p>
+<h2 id="需求分析">需求分析</h2>
+<p>需求分析是我们进行任何一个软件项目设计开发过程中都必须要完成的工作。这个工作通常与客户一起完成。在不同的项目中，这个“客户”可能来自真正的购买产品的用户，使用系统的用户，也有可能来自团队的某个人员，如产品经理等。软件设计开发团队的参与成员根据项目的不同规模，则参与的人员也有所不同。原则上，设计开发人员参与的时间点越早，对于需求的理解和把握会更好。这个阶段，通常需要软件架构师参与其中。从资源优化的角度来说，开发人员不必参与需求分析，但需要理解需求。</p>
+<p>需求分析的结果通常我们需要使用需求说明文档来描述，目前主流的需求描述方法包括：用户例图、用户故事等方式。这些方式有所不同的侧重，其核心思想就是描述清楚用户的使用场景。但无论采取何种方式，进行需求的描述，需求说明需要明确以下几点：所需要开发的软件系统边界；项目所有的相关及使用人员角色；项目关键的使用场景；项目规模、性能要求以及部署方式等非功能性需求。</p>
+<h2 id="功能设计">功能设计</h2>
+<p>功能设计与需求分析差不多同时在开展，在很多软件项目中，对于功能设计不是特别重视。但对于某些软件项目而言，这是一个相当重要的工作。对于主要是用户界面的软件项目来说，功能设计可以看作是画出原型界面，描述使用场景，获得用户认可的过程。而对于没有界面的软件项目来说，则功能设计与需求分析的区分更为模糊。参与的人员与需求分析的参与人员类似，架构师更侧重于参与此类工作，并给与一些实现层面的判断和取舍。</p>
+<p>功能设计需要明确的核心是：项目的行为</p>
+<h2 id="项目架构设计">项目架构设计</h2>
+<p>项目架构设计是一个非常依赖于经验的设计过程。需要根据软件项目的特定功能需求和非功能性需求进行取舍，最终获得一个满足各方要求的项目架构。项目架构的不同，将很大程度上决定项目开发和维护是否能够较为容易的适应需求变化，以及适应业务规模扩张。架构设计工作中，用户参与程度很低。软件开发团队中的需求人员参与程度也很低，但团队中的所有核心设计和开发人员都应该参与其中，并达成一致意见。</p>
+<p>架构设计的主要成果，是将项目的不同视图予以呈现，并使之落实到开发中：项目开发视图及技术路线选择；项目逻辑视图；项目部署视图；项目模块视图。</p>
+<p>在软件开发过程中，项目的架构不是一成不变的，随着设计人员和开发人员对于项目的理解不断深入，项目的架构也会发生演化。在软件项目中，架构设计是开发团队沟通的统一语言，设计文档必须要随着项目的变化进行更新，保障开发团队对于项目的理解和沟通的一致性。</p>
+<h2 id="模块子项目概要设计">模块/子项目概要设计</h2>
+<p>模块/子项目的概要设计，由架构师参与，核心设计和开发人员负责的方式进行。在概要设计工作中，我们需要在架构确定的开发路线的指导下，完成模块功能实现的关键设计工作。在概要设计阶段，需要关注于模块的核心功能和难点进行设计。这个过程中更多推荐的采用UML来进行概要设计，需要进行：模块实现机制设计、模块接口设计、关键类设计、画出时序图、交互图等。</p>
+<h2 id="模块详细设计">模块详细设计</h2>
+<p>在瀑布式开发模型中，模块的详细设计会要求比较严格，将所有类进行详细设计。据我所知，除了一些对于项目健壮性要求非常严格的软件项目，如国防项目，金融项目还要求有详细设计文档之外。其他的项目大多采用其他方式来处理这样的工作，如自动化测试等。</p>
+<p>综上所述，软件设计文档作为软件开发团队的沟通、理解、知识共享的手段，具有非常重要的意义。而根据软件团队的规模，对于文档上承载的信息详细程度可以有不同程度的要求。我们软件团队对于如何使用设计文档有一个统一的理解，并坚持更新设计文档，这就是软件设计的最佳实践！</p>
+<p>自从1968年提出“软件工程”概念以来，软件开发领域对于借鉴传统工程的原则、方法，以提高质量、降低成本的探索就从未停止过。而在这个过程中，提出了许多不同的软件开发模型，典型的有：瀑布式，快速原型法，以及迭代式开发等。</p>
+<h2 id="瀑布式模型">瀑布式模型</h2>
+<p>是由W.W.Royce在1970年最初提出的软件开发模型，在瀑布模型中，开发被认为是按照需求分析，设计，实现，测试 (确认)， 集成，和维护顺序的进行。</p>
+<h2 id="快速原型法">快速原型法</h2>
+<p>快速原型模型的第一步是建造一个快速原型，实现客户或未来的用户与系统的交互，用户或客户对原型进行评价，进一步细化待开发软件的需求。通过逐步调整原型使其满足客户的要求，开发人员可以确定客户的真正需求是什么；第二步则在第一步的基础上开发客户满意的软件产品。</p>
+<h2 id="迭代式开发">迭代式开发</h2>
+<p>在迭代式开发方法中，整个开发工作被组织为一系列的短小的、固定长度（如3周）的小项目，被称为一系列的迭代。每一次迭代都包括了需求分析、设计、实现与测试。采用这种方法，开发工作可以在需求被完整地确定之前启动，并在一次迭代中完成系统的一部分功能或业务逻辑的开发工作。再通过客户的反馈来细化需求，并开始新一轮的迭代。</p>
+<p>不同的开发模型，对于设计阶段的工作要求也不尽相同。相对来说，瀑布式模型中对于设计文档的力度要求得最细，而快速原型法对于设计的要求一般来说比较弱，迭代式开发在每一阶段中的设计文档工作量都相对较少，但在软件开发完成后，最终的设计文档完善程度要比快速原型法的好。</p>
+<h2 id="软件设计的总体思路">软件设计的总体思路</h2>
+<p>软件设计的本质就是针对软件的需求，建立模型，通过将模型映射为软件，来解决实际问题。因此软件设计需要解决的核心问题是建立合适的模型，使得能够开发出满足用户需求的软件产品，并具有以下特性：灵活性（Flexibility）、有效性（Efficiency）、可靠性（Reliability）、可理解性（Understandability）、维护性（Maintainability）、重用性（Reuse-ability）、适应性（Adaptability）、可移植性（Portability）、可追踪性（Traceability）、互操作性（Interoperability）。</p>
+<p>因此，软件设计并没有一套放之四海而皆准的方法和模板，需要我们的设计开发人员在软件的设计开发过程中针对软件项目的特点进行沟通和协调，整理出对软件项目团队的行之有效的方式，进行软件的设计。并保障软件设计文档的一致性，完整性和可理解性。</p>
+<h2 id="谁来进行软件设计">谁来进行软件设计？</h2>
+<p>在我们开发人员中，有很多人这样理解：“软件设计文档就是软件架构师和、项目经理、设计人员的事情”，其实不然。设计文档是整个软件开发团队的产出，其中有些设计文档由架构师、项目经理或者设计人员给出，有些文档由开发人员给出。这并没有一定的区分。</p>
+<h2 id="最佳实践">最佳实践</h2>
+<p>我们经常听到这样的话：</p>
+<p>“设计文档没有用，是用来糊弄客户和管理层的文档”；</p>
+<p>“用来写设计文档的时间，我的开发早就做完了”；</p>
+<p>“项目紧张，没有时间做设计”；</p>
+<p>这些言论，并不是正确的观念，根据软件项目的实际情况，软件开发设计团队可以约定设计文档的详细程度。项目团队需要保障设计文档的完整性和一致性，</p>
+<p>在项目进度紧张的情况下，软件设计文档可以更初略一些；在项目时间充裕的情况下，相关文档可以更为详尽。但是在项目开发过程中，需要软件设计开发团队对于设计文档有共同的理解。</p>
+<h2 id="设计文档分类与使用">设计文档分类与使用</h2>
+<p>通常来说，作为软件项目，我们需要有这几类文档:需求说明文档、功能设计文档、项目架构说明书、模块概要设计文档、模块详细设计文档。</p>
+<p>就像我之前说到的，在某个软件团队，对于以上的文档的要求是可以完全不同的，在简单项目中，可能所有类型的文档放在一个文档中进行说明；在复杂项目中，每一类文档可能都要写几个文档；而在最极端的情况下，可能每一类文档都能装订成几册。因此，在我们软件设计和开发人员心目中需要明确的是：文档并不是我们进行设计的目标，也不是我们设计过程中额外的工作。软件设计文档是我们在软件设计开发过程中形成的，用来在软件设计开发团队内部以及与各干系人之间进行沟通的文档，这些文档记录了软件项目中的各种知识，方案的思路、以及各种决策意见。</p>
+<p>下面我们就软件设计开发过程中必须要完成的工作进行梳理，而我们需要注意到，这些需要完成的工作，在不同的开发流程模型的指导下可能有不同的时间要求，而我们需要关注的是在这个阶段内需要完成的工作，以及这个阶段内我们需要沟通的人员。</p>
+<h2 id="需求分析-2">需求分析</h2>
+<p>需求分析是我们进行任何一个软件项目设计开发过程中都必须要完成的工作。这个工作通常与客户一起完成。在不同的项目中，这个“客户”可能来自真正的购买产品的用户，使用系统的用户，也有可能来自团队的某个人员，如产品经理等。软件设计开发团队的参与成员根据项目的不同规模，则参与的人员也有所不同。原则上，设计开发人员参与的时间点越早，对于需求的理解和把握会更好。这个阶段，通常需要软件架构师参与其中。从资源优化的角度来说，开发人员不必参与需求分析，但需要理解需求。</p>
+<p>需求分析的结果通常我们需要使用需求说明文档来描述，目前主流的需求描述方法包括：用户例图、用户故事等方式。这些方式有所不同的侧重，其核心思想就是描述清楚用户的使用场景。但无论采取何种方式，进行需求的描述，需求说明需要明确以下几点：所需要开发的软件系统边界；项目所有的相关及使用人员角色；项目关键的使用场景；项目规模、性能要求以及部署方式等非功能性需求。</p>
+<h2 id="功能设计-2">功能设计</h2>
+<p>功能设计与需求分析差不多同时在开展，在很多软件项目中，对于功能设计不是特别重视。但对于某些软件项目而言，这是一个相当重要的工作。对于主要是用户界面的软件项目来说，功能设计可以看作是画出原型界面，描述使用场景，获得用户认可的过程。而对于没有界面的软件项目来说，则功能设计与需求分析的区分更为模糊。参与的人员与需求分析的参与人员类似，架构师更侧重于参与此类工作，并给与一些实现层面的判断和取舍。</p>
+<p>功能设计需要明确的核心是：项目的行为</p>
+<h2 id="项目架构设计-2">项目架构设计</h2>
+<p>项目架构设计是一个非常依赖于经验的设计过程。需要根据软件项目的特定功能需求和非功能性需求进行取舍，最终获得一个满足各方要求的项目架构。项目架构的不同，将很大程度上决定项目开发和维护是否能够较为容易的适应需求变化，以及适应业务规模扩张。架构设计工作中，用户参与程度很低。软件开发团队中的需求人员参与程度也很低，但团队中的所有核心设计和开发人员都应该参与其中，并达成一致意见。</p>
+<p>架构设计的主要成果，是将项目的不同视图予以呈现，并使之落实到开发中：项目开发视图及技术路线选择；项目逻辑视图；项目部署视图；项目模块视图。</p>
+<p>在软件开发过程中，项目的架构不是一成不变的，随着设计人员和开发人员对于项目的理解不断深入，项目的架构也会发生演化。在软件项目中，架构设计是开发团队沟通的统一语言，设计文档必须要随着项目的变化进行更新，保障开发团队对于项目的理解和沟通的一致性。</p>
+<h2 id="模块子项目概要设计-2">模块/子项目概要设计</h2>
+<p>模块/子项目的概要设计，由架构师参与，核心设计和开发人员负责的方式进行。在概要设计工作中，我们需要在架构确定的开发路线的指导下，完成模块功能实现的关键设计工作。在概要设计阶段，需要关注于模块的核心功能和难点进行设计。这个过程中更多推荐的采用UML来进行概要设计，需要进行：模块实现机制设计、模块接口设计、关键类设计、画出时序图、交互图等。</p>
+<h2 id="模块详细设计-2">模块详细设计</h2>
+<p>在瀑布式开发模型中，模块的详细设计会要求比较严格，将所有类进行详细设计。据我所知，除了一些对于项目健壮性要求非常严格的软件项目，如国防项目，金融项目还要求有详细设计文档之外。其他的项目大多采用其他方式来处理这样的工作，如自动化测试等。</p>
+<p>综上所述，软件设计文档作为软件开发团队的沟通、理解、知识共享的手段，具有非常重要的意义。而根据软件团队的规模，对于文档上承载的信息详细程度可以有不同程度的要求。我们软件团队对于如何使用设计文档有一个统一的理解，并坚持更新设计文档，这就是软件设计的最佳实践！</p>
+]]></content>
+    </entry>
+</feed>
